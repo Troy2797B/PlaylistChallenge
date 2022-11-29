@@ -3,8 +3,9 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MusicTest {
+import java.util.ArrayList;
 
+public class MusicTest {
     @Test
     public void selectionTest1(){
 
@@ -27,5 +28,27 @@ public class MusicTest {
         Integer expected = 1;
         Integer actual = music.selection(startingIndex, selection);
         Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void moveUpAndStartOverTest(){
+        String[] playist = {"BAP - Angel", "GOT7 - You Calling My Name", "EXO - Overdose",
+                "Creepy Nuts - Hellraiser", "NCT Dream - Hot Sauce", "Aimer - Zankyosanka"};
+        Music music = new Music(playist);
+        Integer startingIndex = 1;
+        String selection = "Creepy Nuts - Hellraiser";
+        Integer expected = 2;
+        Integer actual = music.moveUp(startingIndex,selection);
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void moveDownAndGoToEndTest(){
+        String[] playist = {"Monsta X - Love", "TEN - Birthday", "Moonbin and Sanha - Bad Idea",
+                "LiSA - Gurenge", "Pink Lady - Monster", "Park Hyo Shin - Wild Flower"};
+        Music music = new Music(playist);
+        Integer startingIndex = 5;
+        String selection = "TEN - Birthday";
+        Integer expected = 4;
+        Integer actual = music.moveDown(startingIndex,selection);
+        Assert.assertEquals(expected,actual);
     }
 }
