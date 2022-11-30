@@ -52,14 +52,21 @@ public class MusicTest {
         Assert.assertEquals(expected,actual);
     }
     @Test
-    public void goToStart(){
-//        String[] playist = {"Monsta X - Love", "TEN - Birthday", "Moonbin and Sanha - Bad Idea",
-//                "LiSA - Gurenge", "Pink Lady - Monster", "Park Hyo Shin - Wild Flower"};
-//        Music music = new Music(playist);
-//        Integer startingIndex = playist.length;
-//        String selection = "Monsta X - Love";
-//        String expected = "Monsta X - Love";
-//        String actual = music.goToStart(startingIndex,selection);
-//        Assert.assertEquals(expected, actual);
+    public void goToStartTest(){
+        String[] playist = {"Monsta X - Love", "TEN - Birthday", "Moonbin and Sanha - Bad Idea",
+                "LiSA - Gurenge", "Pink Lady - Monster", "Park Hyo Shin - Wild Flower"};
+        Music music = new Music(playist);
+        String expected = "Monsta X - Love";
+        String actual = music.goToStart();
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void goToEndTest(){
+        String[] playist = {"Monsta X - Love", "TEN - Birthday", "Moonbin and Sanha - Bad Idea",
+                "LiSA - Gurenge", "Pink Lady - Monster", "Park Hyo Shin - Wild Flower"};
+        Music music = new Music(playist);
+        String expected = "Park Hyo Shin - Wild Flower";
+        String actual = music.goToEnd();
+        Assert.assertEquals(expected, actual);
     }
 }
