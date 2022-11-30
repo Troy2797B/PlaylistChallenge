@@ -21,14 +21,28 @@ public class Music {
         ArrayList<String> playList1 = new ArrayList<String>(Arrays.asList(playList));
         Integer results = 0;
         for (int i = startIndex; i < playList1.size(); i++) {
-            System.out.println("Current song title: " + playList1.get(i));
-            if (playList1.get(i).equals(selection)) {
-                System.out.println("Song to select: " + playList1.get(i));
+//            System.out.println("Current song title: " + playList1.get(i));
+//            if (playList1.get(i).equals(selection)) {
+//                System.out.println("Song to select: " + playList1.get(i));
+//            }
+
+            //if the selection matches 0 and startindex matches end of array we want to move to end
+            if(playList1.indexOf(selection) == 0 && startIndex == playList.length){
+                goToEnd();
+                results = 1;
+                break;
             }
-            if(playList1.indexOf(selection) < startIndex){
+            //if the selection matches the end of the array and start index is 0, we want to go to index 0
+            else if (playList1.indexOf(selection) == playList1.size() && startIndex == 0){
+                goToStart();
+                results = 1;
+                break;
+            } else if(playList1.indexOf(selection) < startIndex){
                 results = moveDown(startIndex, selection);
+                break;
             } else if(playList1.indexOf(selection) > startIndex){
                 results = moveUp(startIndex,selection);
+                break;
             }
         }
 
