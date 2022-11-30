@@ -61,5 +61,22 @@ public class Music {
                 }
         } return numOfMoves - 1;
     }
+    //if indexOf selection is equal to the end or the beginning of the playlist,
+    // skip to the beginning or end of the playlist
 
-}
+    public Integer goToStart(Integer startIndex, String selection){
+        ArrayList<String> playList1 = new ArrayList<String>(Arrays.asList(playList));
+        for(int i = 0, k = 0; i < playList1.size(); i++, k++){
+            System.out.println("I " +playList1.get(i));
+            System.out.println("K " + playList1.get(k));
+            if( k == playList1.size() - 1){
+                k = 0;
+                System.out.println(playList1.get(k));
+            }
+        } return 1;
+    }
+        public void goToEnd(){
+
+        }
+    }
+
